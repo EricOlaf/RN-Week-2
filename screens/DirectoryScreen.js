@@ -5,7 +5,7 @@ const DirectoryScreen = (props) => {
     
     const renderDirectoryItem = ({ item: campsite }) => {
         return (
-            <ListItem>
+            <ListItem onPress={() => props.onPress(campsite.id)}>
                 <Avatar
                     source={require('../assets/images/react-lake.jpg') }
                     rounded
