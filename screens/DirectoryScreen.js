@@ -10,7 +10,7 @@ const DirectoryScreen = ({navigation}) => {
         return (
             <ListItem onPress={() => navigation.navigate('CampsiteInfo', {campsite})}>
                 <Avatar
-                    source={require('../assets/images/react-lake.jpg') }
+                    source={campsite.image}
                     rounded
                 />
                 <ListItem.Content>
