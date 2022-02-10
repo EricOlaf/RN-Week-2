@@ -1,7 +1,7 @@
 import { FlatList, ScrollView, Text } from 'react-native';
-import { PARTNERS } from '../shared/partners';
 import { Avatar, Card, ListItem } from 'react-native-elements';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { baseUrl } from '../shared/baseUrl';
 
 function Mission() {
     return (
@@ -23,15 +23,12 @@ function Mission() {
 }
 
 const AboutScreen = () => {
-    const [partners, setPartners] = useState(PARTNERS);
+    const partners = useSelector((state) => state.partners);
 
     const renderPartner = ({ item }) => {
         return (
             <ListItem>
-                <Avatar
-                    rounded
-                    source={require('../assets/images/bootstrap-logo.png')}
-                />
+                <Avatar rounded source={{ uri: baseUrl + item.image }} />
                 <ListItem.Content>
                     <ListItem.Title>{item.name}</ListItem.Title>
                     <ListItem.Subtitle>{item.description}</ListItem.Subtitle>
@@ -47,7 +44,7 @@ const AboutScreen = () => {
                 <Card.Title>Community Partners</Card.Title>
                 <Card.Divider />
                 <FlatList
-                    data={partners}
+                    data={partners.partnersArray}
                     renderItem={renderPartner}
                     keyExtractor={(item) => item.id.toString()}
                 />

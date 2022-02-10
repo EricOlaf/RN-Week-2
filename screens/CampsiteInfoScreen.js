@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { ScrollView } from 'react-native';
+import { useSelector } from 'react-redux';
 import RenderCampsite from '../features/campsites/RenderCampsite';
 import RenderComments from '../features/comments/RenderComments';
-import { COMMENTS } from '../shared/comments';
 
 const CampsiteInfoScreen = ({ route }) => {
     const { campsite } = route.params;
+    const comments = useSelector((state) => state.comments);
 
-    const [comments, setComments] = useState(COMMENTS);
     const [favorite, setFavorite] = useState(false);
 
     return (
@@ -18,7 +18,7 @@ const CampsiteInfoScreen = ({ route }) => {
                 markFavorite={() => setFavorite(true)}
             />
             <RenderComments
-                comments={comments.filter(
+                comments={comments.commentsArray.filter(
                     (comment) => comment.campsiteId === campsite.id
                 )}
             />
