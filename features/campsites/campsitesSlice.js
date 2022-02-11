@@ -3,9 +3,13 @@ import { baseUrl } from '../../shared/baseUrl';
 
 export const fetchCampsites = createAsyncThunk(
     'campsites/fetchCampsites',
-    async () => {
-        const response = await fetch(baseUrl + 'campsites');
-        return response.json();
+    async (value, { rejectWithValue }) => {
+        try {
+            const response = await fetch(baseUrl + 'campsites');
+            return response.json();
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
     }
 );
 
