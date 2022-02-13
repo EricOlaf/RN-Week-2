@@ -3,13 +3,9 @@ import { baseUrl } from '../../shared/baseUrl';
 
 export const fetchComments = createAsyncThunk(
     'comments/fetchComments',
-    async (value, { rejectWithValue }) => {
-        try {
-            const response = await fetch(baseUrl + 'comments');
-            return response.json();
-        } catch (error) {
-            return rejectWithValue(error.message);
-        }
+    async () => {
+        const response = await fetch(baseUrl + 'comments');
+        return response.json();
     }
 );
 
@@ -28,7 +24,7 @@ const commentsSlice = createSlice({
         },
         [fetchComments.rejected]: (state, action) => {
             state.isLoading = false;
-            state.errMess = action.payload;
+            state.errMess = action.error ? action.error.message : 'Fetch failed';
         }
     }
 });

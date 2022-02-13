@@ -3,13 +3,9 @@ import { baseUrl } from '../../shared/baseUrl';
 
 export const fetchCampsites = createAsyncThunk(
     'campsites/fetchCampsites',
-    async (value, { rejectWithValue }) => {
-        try {
-            const response = await fetch(baseUrl + 'campsites');
-            return response.json();
-        } catch (error) {
-            return rejectWithValue(error.message);
-        }
+    async () => {
+        const response = await fetch(baseUrl + 'campsites');
+        return response.json();
     }
 );
 
@@ -28,7 +24,7 @@ const campsitesSlice = createSlice({
         },
         [fetchCampsites.rejected]: (state, action) => {
             state.isLoading = false;
-            state.errMess = action.payload;
+            state.errMess = action.error ? action.error.message : 'Fetch failed';
         }
     }
 });

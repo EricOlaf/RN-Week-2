@@ -3,13 +3,9 @@ import { baseUrl } from '../../shared/baseUrl';
 
 export const fetchPartners = createAsyncThunk(
     'partners/fetchPartners',
-    async (value, { rejectWithValue }) => {
-        try {
-            const response = await fetch(baseUrl + 'partners');
-            return response.json();
-        } catch (error) {
-            return rejectWithValue(error.message);
-        }
+    async () => {
+        const response = await fetch(baseUrl + 'partners');
+        return response.json();
     }
 );
 
@@ -28,7 +24,7 @@ const partnersSlice = createSlice({
         },
         [fetchPartners.rejected]: (state, action) => {
             state.isLoading = false;
-            state.errMess = action.payload;
+            state.errMess = action.error ? action.error.message : 'Fetch failed';
         }
     }
 });
