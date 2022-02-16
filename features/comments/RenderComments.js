@@ -1,12 +1,17 @@
 import { FlatList, Text, View } from 'react-native';
-import { Card } from 'react-native-elements';
+import { Card, Rating } from 'react-native-elements';
 
 const RenderComments = ({ comments }) => {
     const renderCommentItem = ({ item }) => {
         return (
             <View style={{ margin: 10 }}>
                 <Text style={{ fontSize: 14 }}>{item.text}</Text>
-                <Text style={{ fontSize: 12 }}>{item.rating} Stars</Text>
+                <Rating
+                    startingValue={item.rating}
+                    imageSize={10}
+                    readonly
+                    style={{ alignItems: 'flex-start', paddingVertical: '5%' }}
+                />
                 <Text style={{ fontSize: 12 }}>
                     {`-- ${item.author}, ${item.date}`}
                 </Text>
