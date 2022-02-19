@@ -1,5 +1,6 @@
 import { FlatList, Text, View } from 'react-native';
 import { Card, Rating } from 'react-native-elements';
+import * as Animatable from 'react-native-animatable';
 
 const RenderComments = ({ comments }) => {
     const renderCommentItem = ({ item }) => {
@@ -20,15 +21,17 @@ const RenderComments = ({ comments }) => {
     };
 
     return (
-        <Card>
-            <Card.Title>Comments</Card.Title>
-            <Card.Divider />
-            <FlatList
-                data={comments}
-                renderItem={renderCommentItem}
-                keyExtractor={(item) => item.id.toString()}
-            />
-        </Card>
+        <Animatable.View animation='fadeInUp' duration={2000} delay={1000}>
+            <Card>
+                <Card.Title>Comments</Card.Title>
+                <Card.Divider />
+                <FlatList
+                    data={comments}
+                    renderItem={renderCommentItem}
+                    keyExtractor={(item) => item.id.toString()}
+                />
+            </Card>
+        </Animatable.View>
     );
 };
 
