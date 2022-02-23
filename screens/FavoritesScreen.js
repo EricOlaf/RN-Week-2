@@ -60,7 +60,10 @@ const FavoritesScreen = ({ navigation }) => {
                 <View>
                     <ListItem
                         onPress={() =>
-                            navigation.navigate('CampsiteInfo', { campsite })
+                            navigation.navigate('Directory', {
+                                screen: 'CampsiteInfo',
+                                params: { campsite }
+                            })
                         }
                     >
                         <Avatar
