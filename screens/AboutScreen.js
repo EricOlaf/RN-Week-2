@@ -27,18 +27,6 @@ function Mission() {
 const AboutScreen = () => {
     const partners = useSelector((state) => state.partners);
 
-    const renderPartner = ({ item }) => {
-        return (
-            <ListItem>
-                <Avatar rounded source={{ uri: baseUrl + item.image }} />
-                <ListItem.Content>
-                    <ListItem.Title>{item.name}</ListItem.Title>
-                    <ListItem.Subtitle>{item.description}</ListItem.Subtitle>
-                </ListItem.Content>
-            </ListItem>
-        );
-    };
-
     if (partners.isLoading) {
         return (
             <ScrollView>
@@ -82,10 +70,15 @@ const AboutScreen = () => {
                     <Card.Divider />
                     {partners.partnersArray.map((partner, index) => (
                         <ListItem key={index}>
-                            <Avatar rounded source={{ uri: baseUrl + partner.image }} />
+                            <Avatar
+                                rounded
+                                source={{ uri: baseUrl + partner.image }}
+                            />
                             <ListItem.Content>
                                 <ListItem.Title>{partner.name}</ListItem.Title>
-                                <ListItem.Subtitle>{partner.description}</ListItem.Subtitle>
+                                <ListItem.Subtitle>
+                                    {partner.description}
+                                </ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem>
                     ))}

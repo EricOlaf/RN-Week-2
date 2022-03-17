@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Button, FlatList, Modal, StyleSheet, View, Text } from 'react-native';
+import { Button, FlatList, Modal, StyleSheet, Text, View } from 'react-native';
 import { Input, Rating } from 'react-native-elements';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import RenderCampsite from '../features/campsites/RenderCampsite';
+import { toggleFavorite } from '../features/favorites/favoritesSlice';
 import { postComment } from '../features/comments/commentsSlice';
 import * as Animatable from 'react-native-animatable';
-import { toggleFavorite } from '../features/favorites/favoritesSlice';
 
 const CampsiteInfoScreen = ({ route }) => {
     const { campsite } = route.params;
@@ -36,7 +36,7 @@ const CampsiteInfoScreen = ({ route }) => {
 
     const renderCommentItem = ({ item }) => {
         return (
-            <View style={{ padding: 10, backgroundColor: '#fff' }}>
+            <View style={styles.commentItem}>
                 <Text style={{ fontSize: 14 }}>{item.text}</Text>
                 <Rating
                     startingValue={item.rating}
@@ -132,15 +132,23 @@ const CampsiteInfoScreen = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
-    modal: {
-        justifyContent: 'center',
-        margin: 20
-    },
     commentsTitle: {
         textAlign: 'center',
         backgroundColor: '#fff',
-        fontSize: 18,
-        padding: 10
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#43484D',
+        padding: 10,
+        paddingTop: 30
+    },
+    commentItem: {
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        backgroundColor: '#fff'
+    },
+    modal: {
+        justifyContent: 'center',
+        margin: 20
     }
 });
 
