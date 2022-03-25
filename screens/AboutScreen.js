@@ -68,8 +68,8 @@ const AboutScreen = () => {
                 <Card>
                     <Card.Title>Community Partners</Card.Title>
                     <Card.Divider />
-                    {partners.partnersArray.map((partner, index) => (
-                        <ListItem key={index}>
+                    {partners.partnersArray.map((partner) => (
+                        <ListItem key={partner.id}>
                             <Avatar
                                 rounded
                                 source={{ uri: baseUrl + partner.image }}
