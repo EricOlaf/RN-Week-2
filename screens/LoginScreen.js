@@ -48,7 +48,7 @@ const LoginTab = ({ navigation }) => {
             <Input
                 placeholder='Username'
                 leftIcon={{ type: 'font-awesome', name: 'user-o' }}
-                onChangeText={(username) => setUsername(username)}
+                onChangeText={(text) => setUsername(text)}
                 value={username}
                 containerStyle={styles.formInput}
                 leftIconContainerStyle={styles.formIcon}
@@ -56,7 +56,7 @@ const LoginTab = ({ navigation }) => {
             <Input
                 placeholder='Password'
                 leftIcon={{ type: 'font-awesome', name: 'key' }}
-                onChangeText={(password) => setPassword(password)}
+                onChangeText={(text) => setPassword(text)}
                 value={password}
                 containerStyle={styles.formInput}
                 leftIconContainerStyle={styles.formIcon}
