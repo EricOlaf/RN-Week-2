@@ -69,7 +69,9 @@ const ReservationScreen = () => {
         const sendNotification = () => {
             Notifications.setNotificationHandler({
                 handleNotification: async () => ({
-                    shouldShowAlert: true
+                    shouldShowAlert: true,
+                    shouldPlaySound: true,
+                    shouldSetBadge: true
                 })
             });
 
@@ -83,6 +85,7 @@ const ReservationScreen = () => {
         };
 
         let permissions = await Notifications.getPermissionsAsync();
+        console.log(permissions);
         if (!permissions.granted) {
             permissions = await Notifications.requestPermissionsAsync();
         }
