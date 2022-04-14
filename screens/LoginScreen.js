@@ -195,7 +195,7 @@ const RegisterTab = () => {
                 <Input
                     placeholder='Username'
                     leftIcon={{ type: 'font-awesome', name: 'user-o' }}
-                    onChangeText={(username) => setUsername(username)}
+                    onChangeText={(text) => setUsername(text)}
                     value={username}
                     containerStyle={styles.formInput}
                     leftIconContainerStyle={styles.formIcon}
@@ -203,7 +203,7 @@ const RegisterTab = () => {
                 <Input
                     placeholder='Password'
                     leftIcon={{ type: 'font-awesome', name: 'key' }}
-                    onChangeText={(password) => setPassword(password)}
+                    onChangeText={(text) => setPassword(text)}
                     value={password}
                     containerStyle={styles.formInput}
                     leftIconContainerStyle={styles.formIcon}
@@ -211,7 +211,7 @@ const RegisterTab = () => {
                 <Input
                     placeholder='First Name'
                     leftIcon={{ type: 'font-awesome', name: 'user-o' }}
-                    onChangeText={(firstName) => setFirstName(firstName)}
+                    onChangeText={(text) => setFirstName(text)}
                     value={firstName}
                     containerStyle={styles.formInput}
                     leftIconContainerStyle={styles.formIcon}
@@ -219,7 +219,7 @@ const RegisterTab = () => {
                 <Input
                     placeholder='Last Name'
                     leftIcon={{ type: 'font-awesome', name: 'user-o' }}
-                    onChangeText={(lastName) => setLastName(lastName)}
+                    onChangeText={(text) => setLastName(text)}
                     value={lastName}
                     containerStyle={styles.formInput}
                     leftIconContainerStyle={styles.formIcon}
@@ -227,7 +227,7 @@ const RegisterTab = () => {
                 <Input
                     placeholder='Email'
                     leftIcon={{ type: 'font-awesome', name: 'envelope-o' }}
-                    onChangeText={(email) => setEmail(email)}
+                    onChangeText={(text) => setEmail(text)}
                     value={email}
                     containerStyle={styles.formInput}
                     leftIconContainerStyle={styles.formIcon}

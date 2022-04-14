@@ -85,7 +85,6 @@ const ReservationScreen = () => {
         };
 
         let permissions = await Notifications.getPermissionsAsync();
-        console.log(permissions);
         if (!permissions.granted) {
             permissions = await Notifications.requestPermissionsAsync();
         }
