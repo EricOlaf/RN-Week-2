@@ -5,7 +5,11 @@ export const fetchCampsites = createAsyncThunk(
     'campsites/fetchCampsites',
     async () => {
         const response = await fetch(baseUrl + 'campsites');
-        return response.json();
+        if (!response.ok) {
+            return Promise.reject('Unable to fetch, status: ' + response.status);
+        }
+        const data = await response.json();
+        return data;
     }
 );
 
