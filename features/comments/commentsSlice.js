@@ -5,7 +5,11 @@ export const fetchComments = createAsyncThunk(
     'comments/fetchComments',
     async () => {
         const response = await fetch(baseUrl + 'comments');
-        return response.json();
+        if (!response.ok) {
+            return Promise.reject('Unable to fetch, status: ' + response.status);
+        }
+        const data = await response.json();
+        return data;
     }
 );
 
