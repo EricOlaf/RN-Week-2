@@ -37,7 +37,9 @@ const CampsiteInfoScreen = ({ route }) => {
                     <RenderCampsite
                         campsite={campsite}
                         isFavorite={favorites.includes(campsite.id)}
-                        markFavorite={() => dispatch(toggleFavorite(campsite.id))}
+                        markFavorite={() =>
+                            dispatch(toggleFavorite(campsite.id))
+                        }
                     />
                     <Text style={styles.commentsTitle}>Comments</Text>
                 </>
